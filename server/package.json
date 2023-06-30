@@ -1,0 +1,18 @@
+{
+  "name": "vehicle-parking-management-system-server",
+  "version": "1.0.0",
+  "description": "Server for vehicle parking management system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "VuTran-Netpower",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
+  }
+}
