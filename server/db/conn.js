@@ -22,7 +22,6 @@ class Database {
             });
             await this.client.connect();
         }
-
         return this.client.db(this.databaseName);
     }
 }
