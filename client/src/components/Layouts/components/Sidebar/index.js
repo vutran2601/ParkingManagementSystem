@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
     CDBSidebar,
     CDBSidebarHeader,
@@ -7,8 +8,9 @@ import {
     CDBSidebarMenu,
     CDBSidebarFooter,
 } from "cdbreact";
-import { Link } from "react-router-dom";
-import {Box, Typography} from "@mui/material";
+import {
+    Box,
+    Typography} from "@mui/material";
 import {Monitor,
         Dashboard,
         MonetizationOn} from '@mui/icons-material';
@@ -25,16 +27,19 @@ function Sidebar() {
                 top: "0",
             }}
         >
-            <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
-                <div className="container">
-                    {/* <img
-            src={Logo}
-            alt=""
-            style={{ width: "40px", borderRadius: "180%", marginRight: "5px" }}
-          /> */}
-                    <h6 className="m-0 p-0">Vehicle Parking</h6>
-                </div>
-            </CDBSidebarHeader>
+            <CDBSidebarHeader
+                prefix={
+                    <i className="fa fa-bars" />
+                }>
+                <Typography
+                    sx={{
+                        fontWeight: 'bold',
+                        textAlign: 'center'
+                    }}>
+                        Vehicle Parking <br/> 
+                        Management System
+                </Typography>
+             </CDBSidebarHeader>
             <CDBSidebarContent>
                 <CDBSidebarMenu>
                     <CDBSidebarMenuItem>Main features</CDBSidebarMenuItem>
