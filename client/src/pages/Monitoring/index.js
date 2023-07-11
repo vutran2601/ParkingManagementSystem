@@ -43,6 +43,8 @@ const VehicleIn = () => {
     )
 }
 
+
+
 const VehicleOut = () => {
     return (
         <Grid sx={{ mt: 3, p: 3, borderRadius: 5, backgroundColor: '#f6f6f6' }}>
