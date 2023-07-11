@@ -1,21 +1,63 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-    CDBSidebar,
-    CDBSidebarHeader,
-    CDBSidebarMenuItem,
-    CDBSidebarContent,
-    CDBSidebarMenu,
-    CDBSidebarFooter,
+import React, { useState } from "react";
+import {Link,
+} from "react-router-dom";
+import {CDBSidebar,
+        CDBSidebarHeader,
+        CDBSidebarMenuItem,
+        CDBSidebarContent,
+        CDBSidebarMenu,
+        CDBSidebarFooter,
 } from "cdbreact";
-import {
-    Box,
-    Typography} from "@mui/material";
+import {Box,
+        Typography,
+        Button,
+} from "@mui/material";
 import {Monitor,
         Dashboard,
-        MonetizationOn} from '@mui/icons-material';
+        MonetizationOn,
+} from '@mui/icons-material';
 
-function Sidebar() {
+const SidebarItem = ({type, itemSelected, setItemSelected}) => {
+    const IconMapping = {
+        'dashboard': <Dashboard sx={{ mr: 2 }}/>,
+        'monitoring': <Monitor sx={{ mr: 2 }}/>,
+        'management': <MonetizationOn sx={{ mr: 2 }}/>
+    };
+    const firstLetter = type.charAt(0)
+    const firstLetterCap = firstLetter.toUpperCase()    
+    const remainingLetters = type.slice(1)
+    const capitalizedText= firstLetterCap + remainingLetters
+    return (
+        <Link to={"/" + type}>
+            <Box sx={{ mx:1 }}>
+                <Button fullWidth
+                        onClick={() => setItemSelected(type)}
+                        sx={{
+                            p: 2,
+                            justifyContent: 'left',
+                            color: itemSelected === type ? 'black' : '#637381',
+                            backgroundColor: itemSelected === type ? '#D7D7D7' : 'transparent',
+                            '&:hover': {
+                                backgroundColor: itemSelected === type ? '#D7D7D7' : '#EBEBEB'
+                            }
+                        }}>
+                    {IconMapping[type]}
+                    <Typography
+                        sx={{
+                            textTransform: 'none',
+                            fontSize: 15,
+                            fontWeight: itemSelected === type ? 'bold' : 'normal',
+                        }}>
+                        {capitalizedText}
+                    </Typography>
+                </Button>
+            </Box>
+        </Link>
+    )
+}
+
+export default function Sidebar() {
+    const [itemSelected, setItemSelected] = useState('')
     return (
         <CDBSidebar
             textColor="#333"
@@ -25,8 +67,7 @@ function Sidebar() {
                 position: "-webkit-sticky",
                 position: "sticky",
                 top: "0",
-            }}
-        >
+            }}>
             <CDBSidebarHeader
                 prefix={
                     <i className="fa fa-bars" />
@@ -43,30 +84,9 @@ function Sidebar() {
             <CDBSidebarContent>
                 <CDBSidebarMenu>
                     <CDBSidebarMenuItem>Main features</CDBSidebarMenuItem>
-                    <Link to="/dashboard">
-                        <CDBSidebarMenuItem>
-                            <Box display="flex" alignItems="center">
-                                <Dashboard sx={{ mr: 2 }} />
-                                <span>Dashboard</span>
-                            </Box>
-                        </CDBSidebarMenuItem>
-                    </Link>
-                    <Link to="/monitoring">
-                        <CDBSidebarMenuItem>
-                            <Box display="flex" alignItems="center">
-                                <Monitor sx={{ mr: 2 }} />
-                                <span>Monitoring</span>
-                            </Box>
-                        </CDBSidebarMenuItem>
-                    </Link>
-                    <Link to="/management">
-                        <CDBSidebarMenuItem>
-                            <Box display="flex" alignItems="center">
-                                <MonetizationOn sx={{ mr: 2 }} />
-                                <span>Management</span>
-                            </Box>
-                        </CDBSidebarMenuItem>
-                    </Link>
+                    <SidebarItem type='dashboard' itemSelected={itemSelected} setItemSelected={setItemSelected}/>
+                    <SidebarItem type='monitoring' itemSelected={itemSelected} setItemSelected={setItemSelected}/>
+                    <SidebarItem type='management' itemSelected={itemSelected} setItemSelected={setItemSelected}/>
                 </CDBSidebarMenu>
             </CDBSidebarContent>
             <CDBSidebarFooter>
@@ -77,5 +97,3 @@ function Sidebar() {
         </CDBSidebar>
     );
 }
-
-export default Sidebar;
