@@ -1,5 +1,4 @@
-import * as React from "react";
-import {useState,
+import React, {useState,
         useEffect,
         useRef
 } from "react";
@@ -17,16 +16,15 @@ import {
     Select,
 } from "@mui/material";
 
-
 const VehicleIn = () => {
     return (
-        <Grid sx={{ mt: 3, p: 3, borderRadius: 5, backgroundColor: '#f6f6f6' }}>
+        <Grid sx={{ mt: 3, p: 3, borderRadius: 5, backgroundColor: 'white' }}>
             <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>Vehicle check-in</Typography>
             <Grid sx={{ my:2 }}>
                 <FormLabel>Vehicle ID</FormLabel>
                 <TextField name="vehicleid" fullWidth sx={{ mt: 1 }}/>
             </Grid>
-            <Grid sx={{ my:2 }}>                
+            <Grid sx={{ mt:2 }}>                
                 <FormLabel>Type</FormLabel>
                 <RadioGroup sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <FormControlLabel value="4seater" control={<Radio />} label="4 seater" />
@@ -34,28 +32,26 @@ const VehicleIn = () => {
                     <FormControlLabel value="truck" control={<Radio />} label="Truck" />
                 </RadioGroup>                           
             </Grid>
-            <Grid sx={{ display: 'flex', justifyContent: 'center', mt:2 }}>
+            <Grid sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                 <Button variant="contained" color="primary">
-                    Confirm
+                    <Typography sx={{ textTransform: 'none' }}>Confirm</Typography>
                 </Button>
             </Grid>
         </Grid>
     )
 }
 
-
-
 const VehicleOut = () => {
     return (
-        <Grid sx={{ mt: 3, p: 3, borderRadius: 5, backgroundColor: '#f6f6f6' }}>
+        <Grid sx={{ mt: 3, p: 3, borderRadius: 5, backgroundColor: 'white' }}>
             <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>Vehicle check-out</Typography>
             <Grid sx={{ my:2 }}>
                 <FormLabel>Vehicle ID</FormLabel>
                 <TextField name="vehicleid" fullWidth sx={{ mt: 1 }}/>
             </Grid>
-            <Grid sx={{ display: 'flex', justifyContent: 'center', mt:2 }}>
+            <Grid sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
                 <Button variant="contained" color="primary">
-                    Confirm
+                    <Typography sx={{ textTransform: 'none' }}>Confirm</Typography>
                 </Button>
             </Grid>
         </Grid>
@@ -69,7 +65,7 @@ export default function Page() {
         <Grid container>
             <Grid xs={4}>
                 <Grid sx={{ m: 4 }}>
-                    <Grid sx={{ p: 3, borderRadius: 5, backgroundColor: '#f6f6f6' }}>
+                    <Grid sx={{ p: 3, borderRadius: 5, backgroundColor: 'white' }}>
                         <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>Vehicle services</Typography>
                         <Grid sx={{ my:3 }}>
                             <FormControl fullWidth>

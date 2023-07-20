@@ -17,11 +17,11 @@ import {Monitor,
         MonetizationOn,
 } from '@mui/icons-material';
 
-const SidebarItem = ({type, itemSelected, setItemSelected}) => {
+const SidebarItem = ({type, itemSelected, setItemSelected, sidebarMinimized}) => {
     const IconMapping = {
-        'dashboard': <Dashboard sx={{ mr: 2 }}/>,
-        'monitoring': <Monitor sx={{ mr: 2 }}/>,
-        'management': <MonetizationOn sx={{ mr: 2 }}/>
+        'dashboard': <Dashboard sx={{ mr: sidebarMinimized ? 0 : 2 }}/>,
+        'monitoring': <Monitor sx={{ mr: sidebarMinimized ? 0 : 2 }}/>,
+        'management': <MonetizationOn sx={{ mr: sidebarMinimized ? 0 : 2 }}/>
     };
     const firstLetter = type.charAt(0)
     const firstLetterCap = firstLetter.toUpperCase()    
@@ -34,22 +34,26 @@ const SidebarItem = ({type, itemSelected, setItemSelected}) => {
                         onClick={() => setItemSelected(type)}
                         sx={{
                             p: 2,
-                            justifyContent: 'left',
+                            justifyContent: sidebarMinimized ? 'center' : 'left',
                             color: itemSelected === type ? 'black' : '#637381',
                             backgroundColor: itemSelected === type ? '#D7D7D7' : 'transparent',
                             '&:hover': {
                                 backgroundColor: itemSelected === type ? '#D7D7D7' : '#EBEBEB'
                             }
                         }}>
-                    {IconMapping[type]}
-                    <Typography
-                        sx={{
-                            textTransform: 'none',
-                            fontSize: 15,
-                            fontWeight: itemSelected === type ? 'bold' : 'normal',
-                        }}>
-                        {capitalizedText}
-                    </Typography>
+                    {sidebarMinimized ? IconMapping[type] : 
+                    <>
+                        {IconMapping[type]}
+                        <Typography
+                            sx={{
+                                textTransform: 'none',
+                                fontSize: 13,
+                                fontWeight: itemSelected === type ? 'bold' : 'normal',
+                            }}>
+                            {capitalizedText}
+                        </Typography>
+                    </>
+                    } 
                 </Button>
             </Box>
         </Link>
@@ -57,20 +61,23 @@ const SidebarItem = ({type, itemSelected, setItemSelected}) => {
 }
 
 export default function Sidebar() {
-    const [itemSelected, setItemSelected] = useState('')
+    const [itemSelected, setItemSelected] = useState('');
+    const [sidebarMinimized, setSidebarMinimized] = useState(false);
     return (
         <CDBSidebar
             textColor="#333"
             backgroundColor="#f0f0f0"
             style={{
                 height: "100vh",
-                position: "-webkit-sticky",
                 position: "sticky",
                 top: "0",
+                borderRight: '1px dashed #D7D7D7'
             }}>
             <CDBSidebarHeader
                 prefix={
-                    <i className="fa fa-bars" />
+                    <i  className="fa fa-bars"
+                        onClick={() => setSidebarMinimized(!sidebarMinimized)}
+                        style={{ cursor: 'pointer' }}/>
                 }>
                 <Typography
                     sx={{
@@ -84,9 +91,24 @@ export default function Sidebar() {
             <CDBSidebarContent>
                 <CDBSidebarMenu>
                     <CDBSidebarMenuItem>Main features</CDBSidebarMenuItem>
-                    <SidebarItem type='dashboard' itemSelected={itemSelected} setItemSelected={setItemSelected}/>
-                    <SidebarItem type='monitoring' itemSelected={itemSelected} setItemSelected={setItemSelected}/>
-                    <SidebarItem type='management' itemSelected={itemSelected} setItemSelected={setItemSelected}/>
+                    <SidebarItem
+                        type='dashboard' 
+                        itemSelected={itemSelected}
+                        setItemSelected={setItemSelected}
+                        sidebarMinimized={sidebarMinimized}
+                    />
+                    <SidebarItem
+                        type='monitoring' 
+                        itemSelected={itemSelected}
+                        setItemSelected={setItemSelected}
+                        sidebarMinimized={sidebarMinimized}
+                    />
+                    <SidebarItem
+                        type='management' 
+                        itemSelected={itemSelected}
+                        setItemSelected={setItemSelected}
+                        sidebarMinimized={sidebarMinimized}
+                    />
                 </CDBSidebarMenu>
             </CDBSidebarContent>
             <CDBSidebarFooter>

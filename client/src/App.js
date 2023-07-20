@@ -1,88 +1,25 @@
-import { useState, useEffect, Fragment } from "react";
-import { Routes, Route } from "react-router-dom";
-import { publicRoutes, privateRoutes } from "./routes";
-import axios from "axios";
-import { DefaultLayout } from "./components/Layouts";
-import Global from "./components/Global";
-import "./App.css";
-
-const checkAuth = async () => {
-    try {
-        const token = localStorage.getItem("accessToken");
-        const response = await axios.get(
-            "http://localhost:5000/auth/verifyToken",
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
-        if (response.status === 200) {
-            console.log(response.status + ": " + response.data.message);
-            return true;
-        }
-    } catch (err) {
-        console.error(err.message);
-        return false;
-    }
-};
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-    const [auth, setAuth] = useState(false);
-    useEffect(() => {
-        const handleCheckAuth = async (event) => {
-            if (event.key === "accessToken") {
-                const getAuth = await checkAuth();
-                setAuth(getAuth);
-            }
-        };
-        window.addEventListener("storage", handleCheckAuth);
-        return () => {
-            window.removeEventListener("storage", handleCheckAuth);
-        };
-    }, []);
-    return (
-        <div className="App">
-            <Global>
-                <Routes>
-                    {publicRoutes.map((route, index) => {
-                        const Page = route.component;
-                        console.log(auth);
-                        return (
-                            <Route
-                                auth
-                                exact
-                                key={index}
-                                path={route.path}
-                                element={
-                                    <Fragment>
-                                        <Page></Page>
-                                    </Fragment>
-                                }
-                            />
-                        );
-                    })}
-                    {privateRoutes.map((route, index) => {
-                        const Page = route.component;
-                        console.log(auth);
-                        return (
-                            <Route
-                                auth
-                                exact
-                                key={index}
-                                path={route.path}
-                                element={
-                                    <DefaultLayout>
-                                        <Page></Page>
-                                    </DefaultLayout>
-                                }
-                            />
-                        );
-                    })}
-                </Routes>
-            </Global>
-        </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;

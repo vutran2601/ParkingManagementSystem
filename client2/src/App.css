@@ -1,6 +1,9 @@
-.App {
-  text-align: center;
+/*-----CUSTOMIZE REACT BOOTSTRAP-----*/
+.bg-darkblue {
+  background-color: #05386B;
 }
+
+/*----------------END----------------*/
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +38,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} 
