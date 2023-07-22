@@ -26,15 +26,15 @@ const data2 = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400},
                {name: 'Page B', uv: 300, pv: 2400, amt: 2400},
                {name: 'Page C', uv: 500, pv: 2400, amt: 2400}];
 
-export default function Page() {
+export default function Dashboard() {
     return (
         <Grid container>
             <Grid xs={12}>
                 <Typography variant='h5' sx={{ fontWeight: 'bold', ml: 6, my: 3 }}>Hi, Welcome back!</Typography>
             </Grid>
             <Grid xs={7}>
-                <Grid sx={{ ml: 6, mr: 3, p: 3, backgroundColor: 'white', borderRadius: 5 }}>
-                    <Typography sx={{ fontWeight: 'bold', textAlign: 'center', color: '#061B64' }}>Total vehicles</Typography>
+                <Grid sx={{ ml: 6, mr: 3, p: 3, backgroundColor: 'white', borderRadius: 2 }}>
+                    <Typography sx={{ fontWeight: 'bold', textAlign: 'center', color: '#1890ff' }}>Total vehicles</Typography>
                     <Grid
                         sx={{
                             mt: 2,
@@ -88,7 +88,7 @@ export default function Page() {
                 </Grid>
             </Grid>
             <Grid xs={5}>
-                <Grid sx={{ mr: 6, ml: 3, p: 3, backgroundColor: 'white', borderRadius: 5 }}>
+                <Grid sx={{ mr: 6, ml: 3, p: 3, backgroundColor: 'white', borderRadius: 2 }}>
                     <Typography sx={{ fontWeight: 'bold', textAlign: 'center', color: '#7A0C2E' }}>Services</Typography>
                     <Grid
                         sx={{

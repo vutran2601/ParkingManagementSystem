@@ -18,7 +18,7 @@ import {
 
 const VehicleIn = () => {
     return (
-        <Grid sx={{ mt: 3, p: 3, borderRadius: 5, backgroundColor: 'white' }}>
+        <Grid sx={{ mt: 3, p: 3, borderRadius: 2, backgroundColor: 'white' }}>
             <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>Vehicle check-in</Typography>
             <Grid sx={{ my:2 }}>
                 <FormLabel>Vehicle ID</FormLabel>
@@ -43,7 +43,7 @@ const VehicleIn = () => {
 
 const VehicleOut = () => {
     return (
-        <Grid sx={{ mt: 3, p: 3, borderRadius: 5, backgroundColor: 'white' }}>
+        <Grid sx={{ mt: 3, p: 3, borderRadius: 2, backgroundColor: 'white' }}>
             <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>Vehicle check-out</Typography>
             <Grid sx={{ my:2 }}>
                 <FormLabel>Vehicle ID</FormLabel>
@@ -65,7 +65,7 @@ export default function Page() {
         <Grid container>
             <Grid xs={4}>
                 <Grid sx={{ m: 4 }}>
-                    <Grid sx={{ p: 3, borderRadius: 5, backgroundColor: 'white' }}>
+                    <Grid sx={{ p: 3, borderRadius: 2, backgroundColor: 'white' }}>
                         <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>Vehicle services</Typography>
                         <Grid sx={{ my:3 }}>
                             <FormControl fullWidth>
