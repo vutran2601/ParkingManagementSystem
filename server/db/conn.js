@@ -3,11 +3,12 @@ const { MongoClient } = require("mongodb");
 class Database {
     constructor() {
         if (Database.instance) {
+            console.log("Parking Management System is exist");
             return Database.instance;
         }
         this.Db = process.env.ATLAS_URI;
         this.client = null;
-        this.databaseName = "vehicleparking";
+        this.databaseName = "ParkingManagementSystem";
         if (!this.Db) {
             throw new Error("ATLAS_URI environment variable is not set.");
         }

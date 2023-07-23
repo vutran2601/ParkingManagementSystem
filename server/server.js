@@ -19,8 +19,9 @@ app.use(bodyParser.json());
 
 // Define routes
 app.get('/', (req, res) => {
-    res.send('Welcome to the Vehicle Parking Management System API!');
+    res.send('Welcome to the Parking Management System API!');
 });
+app.use('/vehicle', require('./routes/index'))
 
 server.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
@@ -28,7 +29,7 @@ server.listen(port, () => {
     db.connect()
         .then(() => {
             // Database connection is established
-            console.log("Connected to the 'vehicleparking' database");
+            console.log("Connected to Parking Management System database");
         })
         .catch((error) => {
             // Error occurred during connection

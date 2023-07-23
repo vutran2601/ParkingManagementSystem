@@ -104,7 +104,7 @@ export default function Sidebar() {
                         textAlign: 'center',
                     }}
                 >
-                    Vehicle Parking <br />
+                    Parking <br />
                     Management System
                 </Typography>
             </CDBSidebarHeader>
@@ -131,9 +131,7 @@ export default function Sidebar() {
 
             {/* Footer */}
             <CDBSidebarFooter>
-                <CDBSidebarMenuItem icon="sign-out-alt" iconType="solid">
-                    Log out
-                </CDBSidebarMenuItem>
+                
             </CDBSidebarFooter>
         </CDBSidebar>
     );

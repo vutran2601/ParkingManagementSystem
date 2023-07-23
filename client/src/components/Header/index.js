@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { Toolbar, Typography } from "@mui/material";
 
 const Header = () => {
     return (
@@ -12,7 +12,7 @@ const Header = () => {
             <Typography variant="h5" noWrap component="div" sx={{
                 fontWeight: 'bold'
             }} >
-                Vehicle Parking Management System
+                Parking Management System
             </Typography>
         </Toolbar>
     );
