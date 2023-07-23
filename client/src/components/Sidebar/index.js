@@ -15,7 +15,6 @@ import {
 } from '@mui/material';
 import {
     Monitor,
-    Dashboard,
     MonetizationOn,
     MenuOutlined
 } from '@mui/icons-material';
@@ -27,7 +26,6 @@ const SidebarItem = ({
     sidebarMinimized,
 }) => {
     const IconMapping = {
-        dashboard: <Dashboard sx={{ mr: sidebarMinimized ? 0 : 2 }} />,
         monitoring: <Monitor sx={{ mr: sidebarMinimized ? 0 : 2 }} />,
         management: <MonetizationOn sx={{ mr: sidebarMinimized ? 0 : 2 }} />,
     };
@@ -114,7 +112,7 @@ export default function Sidebar() {
                 <CDBSidebarMenu>
                     <CDBSidebarMenuItem>Main features</CDBSidebarMenuItem>
                     {
-                        ['dashboard', 'monitoring', 'management'].map((menuItem, index) => {
+                        ['monitoring', 'management'].map((menuItem, index) => {
                             return (
                                 <SidebarItem
                                     key={index}

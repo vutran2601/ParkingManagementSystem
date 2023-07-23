@@ -21,7 +21,8 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.send('Welcome to the Parking Management System API!');
 });
-app.use('/vehicle', require('./routes/index'))
+app.use('/vehicle', require('./routers/vehicleRouters'))
+app.use('/price', require('./routers/priceRouters'))
 
 server.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

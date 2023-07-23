@@ -1,13 +1,11 @@
 import { Routes, Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import Dashboard from '../pages/Dashboard';
 import Monitoring from '../pages/Monitoring';
 import Management from '../pages/Management';
 import Layout from '../components/Layout';
 
 const publicRoutes = [
-    { path: '/', element: <Dashboard /> },
-    { path: '/dashboard', element: <Dashboard /> },
+    { path: '/', element: <Monitoring /> },
     { path: '/monitoring', element: <Monitoring /> },
     { path: '/management', element: <Management /> },
 ];
