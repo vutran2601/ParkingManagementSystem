@@ -6,7 +6,7 @@ class Database {
             console.log("Parking Management System is exist");
             return Database.instance;
         }
-        this.Db = process.env.ATLAS_URI;
+        this.Db = process.env.ATLAS_URL;
         this.client = null;
         this.databaseName = "ParkingManagementSystem";
         if (!this.Db) {
