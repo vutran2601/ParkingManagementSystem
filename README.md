@@ -1,6 +1,13 @@
 # Parking Management System
 
-*Just follow these steps below*
+**MAIN FEATURES:**
+ 1. Vehicle check-in
+ 2. Vehicle check-out
+ 3. Fuel charge *(Gasoline or Diesel)*
+ 4. Change oil
+ 5. Washing
+
+*Just follow these steps below:*
 
 **Run NodeJS**
  - cd server
