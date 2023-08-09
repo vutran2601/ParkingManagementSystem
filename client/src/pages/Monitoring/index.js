@@ -42,7 +42,7 @@ const CheckIn = (props) => {
     });
 
     const handleCheckIn = async (formSubmit) => {
-        await axios.patch('http://localhost:5000/vehicle/checkin', {
+        await axios.patch('https://parking-management-system-backend-vutran2601.vercel.app/vehicle/checkin', {
             vehicleid: formSubmit.vehicleid,
             type: formSubmit.type,
         });
