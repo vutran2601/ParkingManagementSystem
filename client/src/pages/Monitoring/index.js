@@ -586,7 +586,9 @@ export default function Page() {
     };
 
     useEffect(() => {
+        setLoading(true);
         FetchVehicleRecords();
+        setTimeout(() => setLoading(false), 500);
     }, []);
 
     useEffect(() => {

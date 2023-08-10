@@ -65,7 +65,9 @@ export default function Page() {
     };
 
     useEffect(() => {
+        setLoading(true);
         FetchPrice();
+        setTimeout(() => setLoading(false), 500);
     }, []);
 
     useEffect(() => {
@@ -126,6 +128,7 @@ export default function Page() {
                                 ['4 Seater', '7 Seater', 'Truck'].map((item, index) => {
                                     return (
                                         <PriceItemField
+                                            key={index}
                                             type={item}
                                             price={price}
                                             setPrice={setPrice}
@@ -142,6 +145,7 @@ export default function Page() {
                                 ['Gasoline', 'Diesel'].map((item, index) => {
                                     return (
                                         <PriceItemField
+                                            key={index}
                                             type={item}
                                             price={price}
                                             setPrice={setPrice}
@@ -158,6 +162,7 @@ export default function Page() {
                                 ['Change oil', 'Washing'].map((item, index) => {
                                     return (
                                         <PriceItemField
+                                            key={index}
                                             type={item}
                                             price={price}
                                             setPrice={setPrice}
