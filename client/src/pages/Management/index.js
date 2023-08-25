@@ -54,12 +54,12 @@ export default function Page() {
     });
 
     const FetchPrice = async () => {
-        const response = await axios.get('https://parking-management-system-backend.vercel.app/price/getall');
+        const response = await axios.get('https://parking-management-system-server.vercel.app/price/getall');
         setPrice(response.data[0]);
     };
 
     const handleChangePrice = async () => {
-        await axios.patch('https://parking-management-system-backend.vercel.app/price/changeprice', {
+        await axios.patch('https://parking-management-system-server.vercel.app/price/changeprice', {
             price: price,
         });
     };

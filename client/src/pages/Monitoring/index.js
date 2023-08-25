@@ -42,7 +42,7 @@ const CheckIn = (props) => {
     });
 
     const handleCheckIn = async (formSubmit) => {
-        await axios.patch('https://parking-management-system-backend.vercel.app/vehicle/checkin', {
+        await axios.patch('https://parking-management-system-server.vercel.app/vehicle/checkin', {
             vehicleid: formSubmit.vehicleid,
             type: formSubmit.type,
         });
@@ -133,7 +133,7 @@ const CheckOut = (props) => {
 
     const handleCheckOut = async (vehicleid_req) => {
         try {
-            const response = await axios.patch('https://parking-management-system-backend.vercel.app/vehicle/checkout', {
+            const response = await axios.patch('https://parking-management-system-server.vercel.app/vehicle/checkout', {
                 vehicleid: vehicleid_req
             });
             return response.status
@@ -195,7 +195,7 @@ const FuelCharge = (props) => {
     });
 
     const handleFuelCharge = async (formSubmit) => {
-        await axios.patch('https://parking-management-system-backend.vercel.app/vehicle/fuelcharge', {
+        await axios.patch('https://parking-management-system-server.vercel.app/vehicle/fuelcharge', {
             vehicleid: formSubmit.vehicleid,
             fuel: formSubmit.fuel,
         });
@@ -304,7 +304,7 @@ const ChangeOil = (props) => {
     const [vehicleid, setVehicleId] = useState('');
 
     const handleChangeOil = async (vehicleid_req) => {
-        await axios.patch('https://parking-management-system-backend.vercel.app/vehicle/changeoil', {
+        await axios.patch('https://parking-management-system-server.vercel.app/vehicle/changeoil', {
             vehicleid: vehicleid_req,
         });
     };
@@ -355,7 +355,7 @@ const Washing = (props) => {
     const [vehicleid, setVehicleId] = useState('');
 
     const handleWashing = async (vehicleid_req) => {
-        await axios.patch('https://parking-management-system-backend.vercel.app/vehicle/washing', {
+        await axios.patch('https://parking-management-system-server.vercel.app/vehicle/washing', {
             vehicleid: vehicleid_req,
         });
     };
@@ -434,7 +434,7 @@ const MonitoringTable = (props) => {
                 onChange={async (event) => {
                     props.setLoading(true);
                     const response = await axios.get(
-                        'https://parking-management-system-backend.vercel.app/vehicle/search',
+                        'https://parking-management-system-server.vercel.app/vehicle/search',
                         {
                             params: {
                                 keyword: event.target.value,
@@ -580,7 +580,7 @@ export default function Page() {
     const [vehicleRecords, setVehicleRecords] = useState([]);
     const FetchVehicleRecords = async () => {
         const response = await axios.get(
-            'https://parking-management-system-backend.vercel.app/vehicle/getall'
+            'https://parking-management-system-server.vercel.app/vehicle/getall'
         );
         setVehicleRecords(response.data);
     };
